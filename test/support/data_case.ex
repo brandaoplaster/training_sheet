@@ -16,6 +16,8 @@ defmodule TrainingSheet.DataCase do
 
   use ExUnit.CaseTemplate
 
+  alias Ecto.Adapters.SQL.Sandbox
+
   using do
     quote do
       alias TrainingSheet.Repo
@@ -28,10 +30,10 @@ defmodule TrainingSheet.DataCase do
   end
 
   setup tags do
-    :ok = Ecto.Adapters.SQL.Sandbox.checkout(TrainingSheet.Repo)
+    :ok = Sandbox.checkout(TrainingSheet.Repo)
 
     unless tags[:async] do
-      Ecto.Adapters.SQL.Sandbox.mode(TrainingSheet.Repo, {:shared, self()})
+      Sandbox.mode(TrainingSheet.Repo, {:shared, self()})
     end
 
     :ok
