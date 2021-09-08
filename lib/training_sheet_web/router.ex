@@ -7,6 +7,9 @@ defmodule TrainingSheetWeb.Router do
 
   scope "/api", TrainingSheetWeb do
     pipe_through :api
+
+    forward "/graphql", Absinthe.Plug, schema: TrainingSheetWeb.Schema
+    forward "/graphiql", Absinthe.Plug.GraphiQL, schema: TrainingSheetWeb.Schema
   end
 
   # Enables LiveDashboard only for development
