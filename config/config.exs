@@ -10,6 +10,10 @@ use Mix.Config
 config :training_sheet,
   ecto_repos: [TrainingSheet.Repo]
 
+config :training_sheet, TrainingSheet.Repo,
+  migration_primary_key: [type: :binary_id],
+  migration_foreign_key: [type: :binary_id]
+
 # Configures the endpoint
 config :training_sheet, TrainingSheetWeb.Endpoint,
   url: [host: "localhost"],
