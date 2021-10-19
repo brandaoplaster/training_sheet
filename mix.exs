@@ -55,7 +55,8 @@ defmodule TrainingSheet.MixProject do
       {:sobelow, "~> 0.8", only: :dev},
       {:excoveralls, "~> 0.10", only: :test},
       {:absinthe, "~> 1.5.0"},
-      {:absinthe_plug, "~> 1.5"}
+      {:absinthe_plug, "~> 1.5"},
+      {:crudry, "~> 2.4.0"}
     ]
   end
 

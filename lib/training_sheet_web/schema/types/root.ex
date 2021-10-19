@@ -1,6 +1,7 @@
 defmodule TrainingSheetWeb.Schema.Types.Root do
   use Absinthe.Schema.Notation
 
+  alias Crudry.Middlewares.TranslateErrors
   alias TrainingSheetWeb.Resolvers.User, as: UserResolver
 
   import_types TrainingSheetWeb.Schema.Types.User
@@ -16,6 +17,7 @@ defmodule TrainingSheetWeb.Schema.Types.Root do
     field :create_user, type: :user do
       arg :input, non_null(:create_user)
       resolve &UserResolver.create/2
+      middleware TranslateErrors
     end
   end
 end
